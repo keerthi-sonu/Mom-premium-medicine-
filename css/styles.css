@@ -6,17 +6,41 @@ body {
 
 header {
   background-color: white;
-  padding: 20px;
+  padding: 20px 40px;
   border-bottom: 2px solid #00a99d;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo {
+.logo-image {
+  height: 150px;
+  width: auto;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar a {
+  text-decoration: none;
   color: #00a99d;
-  font-size: 20px;
   font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #00a99d;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
 }
 
 .auth-btn {
@@ -25,25 +49,28 @@ header {
   padding: 8px 15px;
   border: none;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 0;
+  border-radius: 4px;
 }
 
-button {
-  background-color: #00a99d;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
+.auth-btn:hover {
+  background-color: #008f85;
 }
 
 .hero {
   background-color: #d5ece9;
-  padding: 40px;
+  padding: 50px 40px;
+  text-align: center;
 }
 
 .hero h1 {
   color: #00a99d;
   font-size: 30px;
+}
+
+.services-container {
+  padding: 40px;
+  text-align: center;
 }
 
 .feature-box {
@@ -53,14 +80,17 @@ button {
   margin: 10px;
   display: inline-block;
   width: 200px;
+  vertical-align: top;
+  border-radius: 8px;
+  text-align: left;
 }
 
 .feature-box h3 {
-  margin: 0;
+  margin: 0 0 10px 0;
   font-size: 16px;
 }
 
 .feature-box p {
-  margin: 5px 0 0 0;
+  margin: 0;
   font-size: 13px;
 }
