@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Mediken</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img src="https://landing-page-images10.s3.ap-south-1.amazonaws.com/public/Home/appicon.png"
+                alt="MOM PHARMACY" class="logo-image">
+        </a>
+
+        <!-- <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="auth-buttons">
+        <a href="register.html" class="auth-btn">Register</a>
+        </div> -->
+    </header>
+
+    <section class="login-container">
+        <h2>Login to Your Account</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            window.location.href = 'index.html';
+        });
+    </script>
+
+</body>
+
+</html>
