@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - MOM Pharmacy</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <header>
+    <img src="https://landing-page-images10.s3.ap-south-1.amazonaws.com/public/Home/appicon.png" alt="MOM PHARMACY"
+      class="logo-image">
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="auth-buttons">
+      <a href="cart.html" class="auth-btn cart-btn">🛒 Cart <span class="cart-count">0</span></a>
+      <a href="login.html" class="auth-btn">Login</a>
+      <a href="register.html" class="auth-btn">Register</a>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <h1>Contact Us</h1>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        
+        <div class="info-card">
+          <h3>Phone</h3>
+          <p><a href="tel:+917387719822">+91 7387719822</a></p>
+        </div>
+
+        <div class="info-card">
+          <h3>Email</h3>
+          <p><a href="mailto:hr@mompharmacy.com">hr@mompharmacy.com</a></p>
+        </div>
+
+        <div class="info-card">
+          <h3>Address</h3>
+          <p>100 Feet Rd, Silicon Valley<br>Hyderabad, Telangana 500081</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Hours</h3>
+          <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+          Saturday: 10:00 AM - 4:00 PM<br>
+          Sunday: Closed</p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h2>Send Message</h2>
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send</button>
+        </form>
+        <div id="formMessage"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Contact Info</h4>
+        <p><strong>Phone:</strong> +91 7387719822</p>
+        <p><strong>Email:</strong> hr@mompharmacy.com</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 MOM Pharmacy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      if (name && email && message) {
+        const formMessage = document.getElementById('formMessage');
+        formMessage.innerHTML = '<p style="color: #00a99d; padding: 15px; background-color: #d5ece9; border-radius: 4px; text-align: center;">Thank you! We will get back to you soon.</p>';
+        document.getElementById('contactForm').reset();
+      }
+    }
+  </script>
+</body>
+
+</html>
