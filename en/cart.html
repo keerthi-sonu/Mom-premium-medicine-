@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart - Mediken</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <header>
+    <img src="https://landing-page-images10.s3.ap-south-1.amazonaws.com/public/Home/appicon.png" alt="MOM PHARMACY"
+      class="logo-image">
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="auth-buttons">
+      <a href="cart.html" class="auth-btn cart-btn">🛒 Cart <span class="cart-count">0</span></a>
+      <a href="login.html" class="auth-btn">Login</a>
+      <a href="register.html" class="auth-btn">Register</a>
+    </div>
+  </header>
+
+  <section class="cart-container">
+    <h1>Your Shopping Cart</h1>
+
+    <div class="cart-content">
+      <div class="cart-items-section">
+        <h2>Items in Cart</h2>
+        <div id="cart-items" class="cart-items">
+          <!-- Cart items will be populated here by JavaScript -->
+        </div>
+        <div id="empty-cart" class="empty-cart-message">
+          <p>Your cart is empty. <a href="index.html">Continue Shopping</a></p>
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <h2>Order Summary</h2>
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="subtotal">₹0</span>
+        </div>
+        <div class="summary-row">
+          <span>Tax (10%):</span>
+          <span id="tax">₹0</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total:</span>
+          <span id="total">₹0</span>
+        </div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+        <a href="index.html" class="continue-shopping-btn">Continue Shopping</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/script.js"></script>
+</body>
+
+</html>
