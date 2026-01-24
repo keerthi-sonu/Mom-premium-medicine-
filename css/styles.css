@@ -245,6 +245,9 @@ a.auth-btn {
 }
 
 
+
+
+
 .cart-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -542,6 +545,9 @@ a.auth-btn {
 }
 
 
+
+
+
 .about-section {
   padding: 40px 20px;
   background-color: white;
@@ -577,6 +583,9 @@ a.auth-btn {
 }
 
 
+
+
+
 .services-content {
   padding: 40px 20px;
   background-color: white;
@@ -610,6 +619,9 @@ a.auth-btn {
   margin: 0;
   line-height: 1.6;
 }
+
+
+
 
 
 .contact-section {
@@ -719,6 +731,9 @@ a.auth-btn {
 }
 
 
+
+
+
 .footer {
   background-color: #00a99d;
   color: white;
@@ -772,6 +787,9 @@ a.auth-btn {
   padding-top: 15px;
   font-size: 13px;
 }
+
+
+
 
 
 @media (max-width: 768px) {

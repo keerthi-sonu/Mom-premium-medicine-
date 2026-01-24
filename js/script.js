@@ -1,4 +1,3 @@
-
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const medicineDetails = {
@@ -15,7 +14,6 @@ const medicineDetails = {
   }
 };
 
-
 function viewMedicineDetails(medicineId) {
   if (medicineDetails[medicineId]) {
     localStorage.setItem('selectedMedicine', JSON.stringify(medicineDetails[medicineId]));
@@ -23,21 +21,17 @@ function viewMedicineDetails(medicineId) {
   }
 }
 
-
-document.addEventListener('DOMContentLoaded', function() {
-  
+document.addEventListener('DOMContentLoaded', function () {
   const addButtons = document.querySelectorAll('.add-btn');
   addButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
+    button.addEventListener('click', function (e) {
       e.stopPropagation();
       addToCart(this);
     });
   });
 
-  
   updateCartCount();
 
-  
   if (document.getElementById('cart-items')) {
     loadCartItems();
   }
@@ -49,7 +43,6 @@ function addToCart(button) {
   const price = parseFloat(button.getAttribute('data-price'));
   const image = button.getAttribute('data-image');
 
-  
   const existingItem = cart.find(item => item.id === id);
 
   if (existingItem) {
@@ -64,13 +57,10 @@ function addToCart(button) {
     });
   }
 
-  
   localStorage.setItem('cart', JSON.stringify(cart));
 
-  
   updateCartCount();
 
-  
   button.textContent = 'Added!';
   setTimeout(() => {
     button.textContent = 'Add';
