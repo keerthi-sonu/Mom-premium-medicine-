@@ -1,20 +1,15 @@
-// Cart management functionality
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-// Add event listeners to all Add buttons
-document.addEventListener('DOMContentLoaded', function() {
-  // Add to cart button listeners on home page
+document.addEventListener('DOMContentLoaded', function () {
   const addButtons = document.querySelectorAll('.add-btn');
   addButtons.forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
       addToCart(this);
     });
   });
 
-  // Update cart count
-  updateCartCount();
 
-  // Load cart items if on cart page
+  updateCartCount();
   if (document.getElementById('cart-items')) {
     loadCartItems();
   }
@@ -26,7 +21,6 @@ function addToCart(button) {
   const price = parseFloat(button.getAttribute('data-price'));
   const image = button.getAttribute('data-image');
 
-  // Check if item already exists in cart
   const existingItem = cart.find(item => item.id === id);
 
   if (existingItem) {
@@ -41,13 +35,10 @@ function addToCart(button) {
     });
   }
 
-  // Save to localStorage
   localStorage.setItem('cart', JSON.stringify(cart));
 
-  // Update cart count
   updateCartCount();
 
-  // Show feedback
   button.textContent = 'Added!';
   setTimeout(() => {
     button.textContent = 'Add';

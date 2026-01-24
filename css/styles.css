@@ -239,7 +239,6 @@ a.auth-btn {
   margin-left: 5px;
 }
 
-/* Cart Page Styles */
 .cart-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -518,7 +517,7 @@ a.auth-btn {
     margin-top: 10px;
   }
 }
-/* Page Hero Section */
+
 .page-hero {
   background-color: #00a99d;
   color: white;
@@ -536,7 +535,6 @@ a.auth-btn {
   margin: 0;
 }
 
-/* About Section */
 .about-section {
   padding: 40px 20px;
   background-color: white;
@@ -571,7 +569,6 @@ a.auth-btn {
   margin-bottom: 10px;
 }
 
-/* Services Content */
 .services-content {
   padding: 40px 20px;
   background-color: white;
@@ -606,7 +603,6 @@ a.auth-btn {
   line-height: 1.6;
 }
 
-/* Contact Section */
 .contact-section {
   padding: 40px 20px;
   background-color: white;
@@ -713,7 +709,6 @@ a.auth-btn {
   margin-top: 15px;
 }
 
-/* Footer */
 .footer {
   background-color: #00a99d;
   color: white;
@@ -768,7 +763,6 @@ a.auth-btn {
   font-size: 13px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .contact-container {
     grid-template-columns: 1fr;
