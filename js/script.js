@@ -1,20 +1,43 @@
-// Cart management functionality
+
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-// Add event listeners to all Add buttons
+const medicineDetails = {
+  1: {
+    name: "Zolgensma (gene therapy)",
+    image: "https://www.clinicaltrialsarena.com/wp-content/uploads/sites/22/2019/08/2l-Image-Zolgensma.jpg",
+    size: "5.5ml",
+    price: "1701050000",
+    overview: "Zolgensma is a one-time gene therapy. Used to treat Spinal Muscular Atrophy (SMA). Fixes the genetic root cause, not just symptoms.",
+    uses: "Treatment of SMA in children below 2 years. Helps improve muscle strength and survival.",
+    sideEffects: "Increased liver enzymes. Vomiting, fever. Low platelet count (rare but serious).",
+    howToUse: "Given as a single IV infusion. Administered only in a hospital setting. Steroids are given before and after treatment.",
+    drugInteractions: "Live vaccines should be avoided around treatment time. Medicines affecting the liver need careful monitoring."
+  }
+};
+
+
+function viewMedicineDetails(medicineId) {
+  if (medicineDetails[medicineId]) {
+    localStorage.setItem('selectedMedicine', JSON.stringify(medicineDetails[medicineId]));
+    window.location.href = 'medicine-details.html';
+  }
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
-  // Add to cart button listeners on home page
+  
   const addButtons = document.querySelectorAll('.add-btn');
   addButtons.forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function(e) {
+      e.stopPropagation();
       addToCart(this);
     });
   });
 
-  // Update cart count
+  
   updateCartCount();
 
-  // Load cart items if on cart page
+  
   if (document.getElementById('cart-items')) {
     loadCartItems();
   }
@@ -26,7 +49,7 @@ function addToCart(button) {
   const price = parseFloat(button.getAttribute('data-price'));
   const image = button.getAttribute('data-image');
 
-  // Check if item already exists in cart
+  
   const existingItem = cart.find(item => item.id === id);
 
   if (existingItem) {
@@ -41,13 +64,13 @@ function addToCart(button) {
     });
   }
 
-  // Save to localStorage
+  
   localStorage.setItem('cart', JSON.stringify(cart));
 
-  // Update cart count
+  
   updateCartCount();
 
-  // Show feedback
+  
   button.textContent = 'Added!';
   setTimeout(() => {
     button.textContent = 'Add';

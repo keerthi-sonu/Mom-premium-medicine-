@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicine Details - Mediken</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+  <header>
+    <img src="https://landing-page-images10.s3.ap-south-1.amazonaws.com/public/Home/appicon.png" alt="MOM PHARMACY"
+      class="logo-image">
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="auth-buttons">
+      <a href="cart.html" class="auth-btn cart-btn">🛒 Cart <span class="cart-count">0</span></a>
+      <a href="login.html" class="auth-btn">Login</a>
+      <a href="register.html" class="auth-btn">Register</a>
+    </div>
+  </header>
+
+  <div class="medicine-details-container">
+    <a href="index.html" class="back-link">← Back to Home</a>
+
+    <div class="medicine-detail-content">
+      <div class="medicine-image-section">
+        <img id="medicineImage" src="" alt="Medicine">
+      </div>
+
+      <div class="medicine-details-section">
+        <div class="medicine-header">
+          <h1 id="medicineName"></h1>
+          <p class="medicine-size" id="medicineSize"></p>
+          <p class="medicine-price" id="medicinePrice"></p>
+          <button class="add-to-cart-btn" id="addToCartBtn">Add to Cart</button>
+        </div>
+
+        <div class="detail-section">
+          <h3>Overview</h3>
+          <p id="medicineOverview"></p>
+        </div>
+
+        <div class="detail-section">
+          <h3>Uses</h3>
+          <p id="medicineUses"></p>
+        </div>
+
+        <div class="detail-section">
+          <h3>Side Effects</h3>
+          <p id="medicineSideEffects"></p>
+        </div>
+
+        <div class="detail-section">
+          <h3>How to Use</h3>
+          <p id="medicineHowToUse"></p>
+        </div>
+
+        <div class="detail-section">
+          <h3>Drug Interactions</h3>
+          <p id="medicineDrugInteractions"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background-color: #00a99d; color: white; text-align: center; padding: 20px; margin-top: 40px;">
+    <p>&copy; 2024 Mediken. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const medicine = JSON.parse(localStorage.getItem('selectedMedicine'));
+
+      if (medicine) {
+        // Populate the page with medicine details
+        document.getElementById('medicineName').textContent = medicine.name;
+        document.getElementById('medicineSize').textContent = medicine.size;
+        document.getElementById('medicinePrice').textContent = '₹' + medicine.price.replace(/\B(?=(\d{2})+(?!\d))/g, ',');
+        document.getElementById('medicineImage').src = medicine.image;
+        document.getElementById('medicineImage').alt = medicine.name;
+
+        document.getElementById('medicineOverview').textContent = medicine.overview;
+        document.getElementById('medicineUses').textContent = medicine.uses;
+        document.getElementById('medicineSideEffects').textContent = medicine.sideEffects;
+        document.getElementById('medicineHowToUse').textContent = medicine.howToUse;
+        document.getElementById('medicineDrugInteractions').textContent = medicine.drugInteractions;
+
+        // Add to cart button
+        const addBtn = document.getElementById('addToCartBtn');
+        addBtn.addEventListener('click', function() {
+          addToCart({
+            getAttribute: (attr) => {
+              switch(attr) {
+                case 'data-id': return '1';
+                case 'data-name': return medicine.name;
+                case 'data-price': return medicine.price;
+                case 'data-image': return medicine.image;
+              }
+            }
+          });
+        });
+
+        // Update cart count
+        updateCartCount();
+      } else {
+        // Redirect to home if no medicine selected
+        window.location.href = 'index.html';
+      }
+    });
+  </script>
+</body>
+
+</html>
