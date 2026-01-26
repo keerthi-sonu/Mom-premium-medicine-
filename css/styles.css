@@ -83,6 +83,7 @@ header {
   vertical-align: top;
   border-radius: 8px;
   text-align: left;
+  transition: all 0.3 ease;
 }
 
 .feature-box h3 {
@@ -94,6 +95,11 @@ header {
 .feature-box p {
   margin: 0;
   font-size: 13px;
+}
+
+.feature-box:hover{
+  background-color: #00a99d;
+  transform: translateY(-2px);
 }
 
 .login-container {
@@ -959,4 +965,22 @@ a.auth-btn {
   .medicine-details-container {
     padding: 20px;
   }
+}
+
+.medicines-list{
+  display:flex;
+  gap:20px;
+}
+
+.medicine-card{
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 220px;
+  text-align: center;
+}
+
+.medicine-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
 }
