@@ -1873,7 +1873,6 @@ a.auth-btn {
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 4px;
-  border-left: 4px solid #00a99d;
 }
 
 .service-item h3 {
@@ -2248,6 +2247,7 @@ a.auth-btn {
   height: 150px;
   object-fit: contain;
 }
+
 /* ============================= */
 /* CHECKOUT PAGE STYLES */
 /* ============================= */
