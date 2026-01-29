@@ -71,14 +71,17 @@ header {
 .services-container {
   padding: 40px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .feature-box {
   background-color: #00a99d;
   color: white;
   padding: 20px;
-  margin: 10px;
-  display: inline-block;
+  /* margin removed in favor of gap */
   width: 200px;
   vertical-align: top;
   border-radius: 8px;
@@ -97,7 +100,7 @@ header {
   font-size: 13px;
 }
 
-.feature-box:hover{
+.feature-box:hover {
   background-color: #00a99d;
   transform: translateY(-2px);
 }
@@ -141,6 +144,42 @@ header {
 .form-group input:focus {
   border-color: #00a99d;
   outline: none;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #777;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.auth-links a {
+  color: #00a99d;
+  text-decoration: none;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
 }
 
 .submit-btn {
@@ -967,12 +1006,12 @@ a.auth-btn {
   }
 }
 
-.medicines-list{
-  display:flex;
-  gap:20px;
+.medicines-list {
+  display: flex;
+  gap: 20px;
 }
 
-.medicine-card{
+.medicine-card {
   border: 1px solid #ddd;
   padding: 15px;
   width: 220px;
