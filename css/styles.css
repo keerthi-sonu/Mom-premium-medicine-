@@ -230,6 +230,7 @@ header {
 
 .password-wrapper input {
   width: 100%;
+  padding-right: 40px; /* leave space for the eye icon so it's clickable */
 }
 
 .password-wrapper i {
@@ -241,6 +242,7 @@ header {
   color: #999;
   font-size: 16px;
   transition: color 0.3s;
+  z-index: 2; /* ensure icon is above the input for clicks */
 }
 
 .password-wrapper i:hover {
