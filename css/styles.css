@@ -69,20 +69,20 @@ header {
 }
 
 .services-container {
-  padding: 40px;
+  padding: 40px 20px;
   text-align: center;
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .feature-box {
   background-color: #00a99d;
   color: white;
   padding: 20px;
-  /* margin removed in favor of gap */
-  width: 200px;
+  flex: 0 0 calc(25% - 15px);
+  min-width: 180px;
   vertical-align: top;
   border-radius: 8px;
   text-align: left;
@@ -105,6 +105,77 @@ header {
   transform: translateY(-2px);
 }
 
+.auth-container {
+  display: flex;
+  min-height: calc(100vh - 80px);
+  background-color: #ffffff;
+}
+
+.auth-left {
+  flex: 1;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.logo-section {
+  width: 100%;
+  text-align: center;
+}
+
+.brand-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.auth-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background-color: #ffffff;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 380px;
+}
+
+.form-box h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 0 0 25px 0;
+  font-weight: 600;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .login-container {
   max-width: 400px;
   margin: 50px auto;
@@ -122,61 +193,98 @@ header {
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   text-align: left;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 5px;
-  color: #333;
-  font-weight: bold;
+  margin-bottom: 6px;
+  color: #555;
+  font-weight: 500;
+  font-size: 13px;
 }
 
 .form-group input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
+  font-size: 14px;
+  background-color: #fafafa;
+  transition: border-color 0.2s;
 }
 
 .form-group input:focus {
   border-color: #00a99d;
   outline: none;
+  background-color: #fff;
 }
 
 .password-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
 }
 
 .password-wrapper i {
   position: absolute;
-  right: 10px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  color: #777;
+  color: #999;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.password-wrapper i:hover {
+  color: #00a99d;
+}
+
+.forgot-links {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.forgot-links a {
+  color: #666;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.forgot-links a:hover {
+  color: #00a99d;
 }
 
 .auth-links {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
-  font-size: 14px;
+  margin-bottom: 25px;
+  font-size: 13px;
+  gap: 10px;
 }
 
 .auth-links a {
   color: #00a99d;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
 .auth-links a:hover {
-  text-decoration: underline;
+  color: #008f85;
 }
 
 .error-message {
-  color: red;
+  color: #dc3545;
   font-size: 12px;
   margin-top: 5px;
   display: block;
@@ -186,22 +294,120 @@ header {
   width: 100%;
   background-color: #00a99d;
   color: white;
-  padding: 12px;
+  padding: 11px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.3s;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  margin-top: 15px;
 }
 
 .submit-btn:hover {
   background-color: #008f85;
 }
 
-a.auth-btn {
+.signup-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.signup-text a {
+  color: #00a99d;
   text-decoration: none;
-  display: inline-block;
+  font-weight: 500;
+}
+
+.signup-text a:hover {
+  color: #008f85;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.auth-footer p {
+  margin: 0;
+}
+
+.auth-footer a {
+  color: #00a99d;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+  color: #008f85;
+}
+
+
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .auth-left {
+    min-height: 280px;
+    padding: 30px;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .auth-right {
+    padding: 30px 20px;
+  }
+
+  .brand-image {
+    max-height: 200px;
+  }
+
+  .form-box {
+    max-width: 100%;
+  }
+
+  .form-box h2 {
+    font-size: 22px;
+  }
+
+  .split-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .split-left {
+    min-height: 300px;
+    padding: 30px;
+  }
+
+  .split-right {
+    min-height: auto;
+    padding: 30px 20px;
+  }
+
+  .auth-image {
+    max-height: 250px;
+  }
+
+  .form-wrapper {
+    max-width: 100%;
+  }
+
+  .form-wrapper h2 {
+    font-size: 24px;
+  }
+
+  .auth-links {
+    flex-direction: column;
+  }
 }
 
 .product-card {
@@ -288,10 +494,6 @@ a.auth-btn {
   font-weight: bold;
   margin-left: 5px;
 }
-
-
-
-
 
 .cart-container {
   max-width: 1200px;
@@ -589,10 +791,6 @@ a.auth-btn {
   margin: 0;
 }
 
-
-
-
-
 .about-section {
   padding: 40px 20px;
   background-color: white;
@@ -627,10 +825,6 @@ a.auth-btn {
   margin-bottom: 10px;
 }
 
-
-
-
-
 .services-content {
   padding: 40px 20px;
   background-color: white;
@@ -648,12 +842,12 @@ a.auth-btn {
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 4px;
-  border-left: 4px solid #00a99d;
 }
 
 .service-item h3 {
   color: #00a99d;
   font-size: 18px;
+  text-align: left;
   margin-top: 0;
   margin-bottom: 10px;
 }
@@ -661,13 +855,10 @@ a.auth-btn {
 .service-item p {
   color: #666;
   font-size: 14px;
+  text-align: left;
   margin: 0;
   line-height: 1.6;
 }
-
-
-
-
 
 .contact-section {
   padding: 40px 20px;
@@ -749,6 +940,10 @@ a.auth-btn {
   box-sizing: border-box;
 }
 
+.contact-form textarea {
+  resize: none;
+}
+
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
@@ -774,10 +969,6 @@ a.auth-btn {
 #formMessage {
   margin-top: 15px;
 }
-
-
-
-
 
 .footer {
   background-color: #00a99d;
@@ -833,10 +1024,6 @@ a.auth-btn {
   font-size: 13px;
 }
 
-
-
-
-
 @media (max-width: 768px) {
   .contact-container {
     grid-template-columns: 1fr;
@@ -868,7 +1055,12 @@ a.auth-btn {
   }
 
   .services-container {
-    grid-template-columns: 1fr;
+    flex-wrap: nowrap;
+  }
+
+  .feature-box {
+    flex: 0 0 calc(25% - 15px);
+    min-width: 150px;
   }
 
   .contact-container {

@@ -23,7 +23,7 @@
     </nav>
 
     <div class="auth-buttons">
-      <a href="cart.html" class="auth-btn cart-btn">🛒 Cart <span class="cart-count">0</span></a>
+      <a href="cart.html" class="auth-btn cart-btn">Cart <span class="cart-count">0</span></a>
       <a href="login.html" class="auth-btn">Login</a>
       <a href="register.html" class="auth-btn">Register</a>
     </div>
@@ -83,7 +83,7 @@
       const medicine = JSON.parse(localStorage.getItem('selectedMedicine'));
 
       if (medicine) {
-        // Populate the page with medicine details
+        
         document.getElementById('medicineName').textContent = medicine.name;
         document.getElementById('medicineSize').textContent = medicine.size;
         document.getElementById('medicinePrice').textContent = '₹' + medicine.price.replace(/\B(?=(\d{2})+(?!\d))/g, ',');
@@ -96,7 +96,7 @@
         document.getElementById('medicineHowToUse').textContent = medicine.howToUse;
         document.getElementById('medicineDrugInteractions').textContent = medicine.drugInteractions;
 
-        // Add to cart button
+        
         const addBtn = document.getElementById('addToCartBtn');
         addBtn.addEventListener('click', function () {
           addToCart({
@@ -110,11 +110,8 @@
             }
           });
         });
-
-        // Update cart count
         updateCartCount();
       } else {
-        // Redirect to home if no medicine selected
         window.location.href = 'index.html';
       }
     });

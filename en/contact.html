@@ -22,7 +22,7 @@
     </nav>
 
     <div class="auth-buttons">
-      <a href="cart.html" class="auth-btn cart-btn">🛒 Cart <span class="cart-count">0</span></a>
+      <a href="cart.html" class="auth-btn cart-btn">Cart <span class="cart-count">0</span></a>
       <a href="login.html" class="auth-btn">Login</a>
       <a href="register.html" class="auth-btn">Register</a>
     </div>
@@ -63,17 +63,17 @@
         <form id="contactForm" onsubmit="submitForm(event)">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" maxlength="20" placeholder="Enter username" required>
           </div>
 
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" placeholder="Enter email" required>
           </div>
 
           <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="message">Message <small>(upto 40 words)</small></label>
+            <textarea id="message" name="message" rows="5" placeholder="Enter message" required></textarea>
           </div>
 
           <button type="submit" class="submit-btn">Send</button>
@@ -113,6 +113,25 @@
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
+
+      // Validate name (max 20 characters)
+      if (name.length > 20) {
+        alert('Name must be 20 characters or less.');
+        return;
+      }
+
+      // Validate email contains @
+      if (!email.includes('@')) {
+        alert('Email must contain @');
+        return;
+      }
+
+      // Count words in message
+      const words = message.trim().split(/\s+/).filter(word => word.length > 0).length;
+      if (words > 40) {
+        alert('Message must be 40 words or less.');
+        return;
+      }
 
       if (name && email && message) {
         const formMessage = document.getElementById('formMessage');
