@@ -702,17 +702,18 @@ header {
 }
 
 .checkout-btn {
+  display: block;
   width: 100%;
-  background-color: #00a99d;
-  color: white;
   padding: 12px;
-  border: none;
+  border: 2px solid #00a99d;
+  background-color: white;
+  color: #00a99d;
+  text-decoration: none;
+  text-align: center;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
   font-weight: bold;
-  transition: background-color 0.3s;
-  margin-bottom: 10px;
+  transition: 0.3s;
 }
 
 .checkout-btn:hover:not(:disabled) {
@@ -892,7 +893,7 @@ header {
   padding: 15px;
   border-radius: 4px;
   margin-bottom: 15px;
-  border-left: 4px solid #00a99d;
+
 }
 
 .info-card h3 {
@@ -1918,7 +1919,7 @@ a.auth-btn {
   padding: 15px;
   border-radius: 4px;
   margin-bottom: 15px;
-  border-left: 4px solid #00a99d;
+
 }
 
 .info-card h3 {
@@ -2248,10 +2249,6 @@ a.auth-btn {
   object-fit: contain;
 }
 
-/* ============================= */
-/* CHECKOUT PAGE STYLES */
-/* ============================= */
-
 .checkout-container {
   max-width: 900px;
   margin: 40px auto;
@@ -2271,7 +2268,7 @@ a.auth-btn {
   padding: 20px;
   border-radius: 6px;
   margin-bottom: 20px;
-  border-left: 4px solid #00a99d;
+
 }
 
 .checkout-section h3 {
