@@ -2296,6 +2296,22 @@ a.auth-btn {
   box-sizing: border-box;
 }
 
+.address-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+@media (max-width: 600px) {
+  .address-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .address-grid input {
+    grid-column: span 1 !important;
+  }
+}
+
 .place-order-btn {
   width: 100%;
   background-color: #00a99d;
