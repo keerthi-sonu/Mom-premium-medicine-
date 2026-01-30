@@ -5,13 +5,16 @@
   <meta charset="UTF-8">
   <title>Checkout - MOM Pharmacy</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
 
   <header>
-    <img src="https://landing-page-images10.s3.ap-south-1.amazonaws.com/public/Home/appicon.png" alt="MOM PHARMACY"
-      class="logo-image">
+    <a href="index.html">
+      <img src="https://landing-page-images10.s3.ap-south-1.amazonaws.com/public/Home/appicon.png" alt="MOM PHARMACY"
+        class="logo-image">
+    </a>
 
     <nav class="navbar">
       <ul>
@@ -23,64 +26,110 @@
     </nav>
 
     <div class="auth-buttons">
-      <a href="cart.html" class="auth-btn cart-btn">Cart</a>
+      <a href="cart.html" class="auth-btn cart-btn">Cart <span class="cart-count">0</span></a>
     </div>
   </header>
 
-  <section class="checkout-container">
-    <h1>Checkout</h1>
+  <div class="checkout-page-container">
+    <div class="checkout-main-content">
+      <section class="checkout-container">
+        <h1>Complete your order</h1>
 
-    <div class="checkout-section">
-      <h3>Delivery Details</h3>
+        <div class="checkout-section">
+          <h3> Shipping Information</h3>
 
-      <div class="checkout-form-group">
-        <label>Full Name</label>
-        <input type="text" placeholder="Enter full name" maxlength="20" required>
-        <small style="color: #888;">Max 20 chars</small>
-      </div>
+          <div class="checkout-form-group">
+            <label>Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter full name" maxlength="20" required>
+            <small class="hint">Max 20 chars</small>
+          </div>
 
-      <div class="checkout-form-group">
-        <label for="mobile">Mobile Number</label>
-        <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number" pattern="[6-9][0-9]{9}"
-          maxlength="10" title="Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9" required>
-        <small style="color: #888;">Must be 10 digits</small>
-        <span class="error-message" id="mobileError"></span>
-      </div>
+          <div class="checkout-form-group">
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number" pattern="[6-9][0-9]{9}"
+              maxlength="10" title="Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9" required>
+            <small class="hint">10 digits, starts with 6-9</small>
+            <span class="error-message" id="mobileError"></span>
+          </div>
 
-      <div class="checkout-form-group">
-        <label>Delivery Address</label>
-        <div class="address-grid">
-          <input type="text" placeholder="Flat / House No. / Building" required style="grid-column: span 2;">
-          <input type="text" placeholder="Street / Area / Colony" required style="grid-column: span 2;">
-          <input type="text" placeholder="Landmark (Optional)">
-          <input type="text" placeholder="City / Town" required>
-          <input type="text" placeholder="State" required>
-          <input type="text" placeholder="Pincode" pattern="[0-9]{6}" maxlength="6" title="Enter 6-digit pincode"
-            required>
+          <div class="checkout-form-group">
+            <label>Delivery Address</label>
+            <div class="address-grid">
+              <input type="text" id="houseNo" placeholder="Flat / House No. / Building" required
+                style="grid-column: span 2;">
+              <input type="text" id="street" placeholder="Street / Area / Colony" required style="grid-column: span 2;">
+              <input type="text" id="landmark" placeholder="Landmark (Optional)">
+              <input type="text" id="city" placeholder="City / Town" required>
+              <input type="text" id="state" placeholder="State" required>
+              <input type="text" id="pincode" placeholder="Pincode" pattern="[0-9]{6}" maxlength="6"
+                title="Enter 6-digit pincode" required>
+            </div>
+          </div>
         </div>
+
+        <div class="checkout-section">
+          <h3> Payment Method</h3>
+          <div class="payment-options">
+            <label class="payment-option">
+              <input type="radio" name="payment" value="upi" checked>
+              <div class="payment-card">
+
+                <span>UPI (GPay, PhonePe)</span>
+              </div>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="card">
+              <div class="payment-card">
+
+                <span>Credit / Debit Card</span>
+              </div>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="cod">
+              <div class="payment-card">
+
+                <span>Cash on Delivery</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="checkout-actions">
+          <a href="cart.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Cart</a>
+          <button class="place-order-btn" id="proceedBtn">
+            Proceed to Payment <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <aside class="checkout-sidebar">
+      <div class="order-summary-card">
+        <h3>Order Summary</h3>
+        <div id="checkout-items-list" class="checkout-items-mini">
+          <!-- Items will be loaded here -->
+        </div>
+        <div class="summary-details">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="subtotal">₹0</span>
+          </div>
+          <div class="summary-row">
+            <span>Delivery Fee</span>
+            <span id="delivery-fee">₹40</span>
+          </div>
+          <div class="summary-row total">
+            <span>Payable Amount</span>
+            <span id="total-amount">₹0</span>
+          </div>
+        </div>
+
       </div>
-    </div>
+    </aside>
+  </div>
 
-    <div class="checkout-section">
-      <h3>Prescription Upload</h3>
 
-      <div class="checkout-form-group">
-        <input type="file">
-      </div>
-    </div>
-
-    <div class="checkout-section">
-      <h3>Payment</h3>
-      <p>Select payment method and proceed.</p>
-
-      <button class="place-order-btn" style="margin-top: 10px;">
-        Proceed to Payment
-      </button>
-    </div>
-
-    <a href="cart.html" class="back-to-cart">← Back to Cart</a>
-  </section>
-
+  <script src="../js/checkout.js"></script>
 </body>
 
 </html>
