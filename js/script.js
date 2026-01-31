@@ -6,7 +6,7 @@ const medicineDetails = {
     name: "Zolgensma (gene therapy)",
     image: "https://www.clinicaltrialsarena.com/wp-content/uploads/sites/22/2019/08/2l-Image-Zolgensma.jpg",
     size: "5.5ml",
-    price: "1701050000",
+    price: "17010500",
     overview: "Zolgensma is a one-time gene therapy. Used to treat Spinal Muscular Atrophy (SMA). Fixes the genetic root cause, not just symptoms.",
     uses: "Treatment of SMA in children below 2 years. Helps improve muscle strength and survival.",
     sideEffects: "Increased liver enzymes. Vomiting, fever. Low platelet count (rare but serious).",
@@ -72,6 +72,114 @@ const medicineDetails = {
     sideEffects: "Fatigue, high blood pressure, diarrhea, and low blood cell counts.",
     howToUse: "Administered as an intravenous (IV) infusion every 2 to 3 weeks.",
     drugInteractions: "Inform doctor about all medications. Live vaccines should be avoided during treatment."
+  },
+  7: {
+    id: "7",
+    name: "Jardiance 25mg (Empagliflozin)",
+    image: "../assets/jardiance_box.png",
+    size: "10 Tablets",
+    price: "1200",
+    overview: "Jardiance is used with diet and exercise to lower blood sugar in adults with type 2 diabetes.",
+    uses: "Management of type 2 diabetes and reduction of cardiovascular death risk.",
+    sideEffects: "Urinary tract infections, yeast infections, and increased urination.",
+    howToUse: "Take once daily in the morning, with or without food.",
+    drugInteractions: "May interact with diuretics and insulin secretagogues."
+  },
+  8: {
+    id: "8",
+    name: "Rybelsus 7mg (Semaglutide)",
+    image: "../assets/rybelsus_box.png",
+    size: "10 Tablets",
+    price: "12000",
+    overview: "Rybelsus is the first and only pill that works like a natural hormone to lower blood sugar.",
+    uses: "Improvement of glycemic control in adults with type 2 diabetes mellitus.",
+    sideEffects: "Nausea, stomach pain, diarrhea, and decreased appetite.",
+    howToUse: "Take once daily on an empty stomach with a sip of plain water.",
+    drugInteractions: "May delay absorption of other oral medications."
+  },
+  9: {
+    id: "9",
+    name: "Januvia 100mg (Sitagliptin)",
+    image: "../assets/januvia_box.png",
+    size: "10 Tablets",
+    price: "1500",
+    overview: "Januvia is a prescription medicine used along with diet and exercise to lower blood sugar.",
+    uses: "Treatment of type 2 diabetes as monotherapy or combination therapy.",
+    sideEffects: "Upper respiratory tract infection, stuffy or runny nose, and headache.",
+    howToUse: "Take once daily with or without food.",
+    drugInteractions: "Low risk of interactions; monitor with digoxin."
+  },
+  10: {
+    id: "10",
+    name: "Entresto 200mg (Sacubitril/Valsartan)",
+    image: "../assets/entresto_box.png",
+    size: "10 Tablets",
+    price: "3500",
+    overview: "Entresto is a breakthrough treatment for patients with chronic heart failure and high BP.",
+    uses: "Reduction of cardiovascular death and hospitalization risk in heart failure.",
+    sideEffects: "Low blood pressure, high potassium levels, and kidney problems.",
+    howToUse: "Take twice daily as prescribed by your doctor.",
+    drugInteractions: "Do not take with ACE inhibitors or other ARBs."
+  },
+  11: {
+    id: "11",
+    name: "Telma 40mg (Telmisartan)",
+    image: "../assets/telma_box.png",
+    size: "15 Tablets",
+    price: "800",
+    overview: "Telma 40 contains Telmisartan, an ARB used to treat high blood pressure.",
+    uses: "Treatment of hypertension and reduction of cardiovascular risk.",
+    sideEffects: "Dizziness, upper respiratory tract infection, and back pain.",
+    howToUse: "Take once daily with or without food.",
+    drugInteractions: "Monitor with potassium-sparing diuretics and lithium."
+  },
+  12: {
+    id: "12",
+    name: "Herceptin (Trastuzumab)",
+    image: "https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769405980/herceptin_pg47dw.jpg",
+    size: "1 Vial",
+    price: "150000",
+    overview: "Herceptin is a targeted therapy used to treat HER2-positive breast and stomach cancers.",
+    uses: "Adjuvant treatment of HER2-overexpressing node-positive or node-negative breast cancer.",
+    sideEffects: "Fever, nausea, vomiting, infusion reactions, and heart problems.",
+    howToUse: "Administered as an intravenous (IV) infusion by a healthcare provider.",
+    drugInteractions: "Inform doctor about all medications, especially those affecting the heart."
+  },
+  13: {
+    id: "13",
+    name: "Avastin (Bevacizumab)",
+    image: "https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769406346/Avastin_zzsw61.png",
+    size: "1 Vial",
+    price: "85000",
+    overview: "Avastin is a tumor-starving (anti-angiogenic) therapy that blocks VEGF to slow tumor growth.",
+    uses: "Used for colorectal, lung, glioblastoma, kidney, cervical, and ovarian cancers.",
+    sideEffects: "High blood pressure, tiredness, headache, and nosebleeds.",
+    howToUse: "Administered as an intravenous (IV) infusion every 2 or 3 weeks.",
+    drugInteractions: "Monitor with other cancer drugs; may increase risk of bleeding."
+  },
+  14: {
+    id: "14",
+    name: "Perjeta (Pertuzumab)",
+    image: "https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769406628/002c9844a0ce4e2ca61503dfe4de04a7-perjeta-vial_26_b5aexr.jpg",
+    size: "1 Vial",
+    price: "120000",
+    overview: "Perjeta is a targeted therapy used in combination with Herceptin for HER2-positive breast cancer.",
+    uses: "Treatment of HER2-positive metastatic breast cancer and early breast cancer.",
+    sideEffects: "Diarrhea, hair loss, low white blood cell count, and nausea.",
+    howToUse: "Administered as an intravenous (IV) infusion by a healthcare professional.",
+    drugInteractions: "Inform healthcare providers about all your medical conditions."
+  },
+  15: {
+    id: "15",
+    name: "Tagrisso (Osimertinib)",
+    image: "https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769406963/tag_uzbqqx.webp",
+    size: "30 Tablets",
+    price: "180000",
+    overview: "Tagrisso is a targeted kinase inhibitor used for certain types of non-small cell lung cancer.",
+    uses: "First-line treatment of patients with metastatic NSCLC whose tumors have EGFR mutations.",
+    sideEffects: "Diarrhea, rash, dry skin, and nail changes (e.g., redness, soreness).",
+    howToUse: "Take one tablet once daily, with or without food.",
+    drugInteractions: "Avoid strong CYP3A4 inducers like rifampin and St. John's Wort."
   }
 };
 

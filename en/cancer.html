@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mom Premium Medicines</title>
+  <title>Cancer Medicines - Mom Premium Medicines</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 
@@ -23,52 +23,82 @@
     </nav>
     <div class="auth-buttons">
       <a href="cart.html" class="auth-btn cart-btn">Cart <span class="cart-count">0</span></a>
+      <a href="login.html" class="auth-btn">Login</a>
     </div>
   </header>
 
-
   <section class="page-hero">
-    <h1>Cancer Medicines</h1>
+    <h1>Advanced Cancer Medicines</h1>
+    <p>Targeted therapies and immunotherapy for effective oncology care</p>
   </section>
 
+  <div class="medicines-container">
+    <div class="products-grid">
+      <!-- Medicine 1: Herceptin -->
+      <div class="product-card" onclick="viewMedicineDetails(12)">
+        <img src="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769405980/herceptin_pg47dw.jpg" alt="Herceptin"
+          class="product-image">
+        <h3 class="product-title">Herceptin (Trastuzumab)</h3>
+        <p class="product-subtitle">1 Vial</p>
+        <div class="price-add-row">
+          <span class="price">₹1,50,000</span>
+          <button class="add-btn" data-id="12" data-name="Herceptin (Trastuzumab)" data-price="150000"
+            data-image="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769405980/herceptin_pg47dw.jpg">Add</button>
+        </div>
+      </div>
 
-  <!-- medicines display  -->
-  <div class="medicines-list">
-    <!-- medicine 1 -->
-    <div class="medicine-card">
-      <img src="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769405980/herceptin_pg47dw.jpg" alt="Herceptin">
-      <h3>Herceptin</h3>
-      <p><strong>Cost:</strong> ₹1,50,000</p>
-      <p><strong>Quantity:</strong>1 Vial</p>
-    </div>
+      <!-- Medicine 2: Avastin -->
+      <div class="product-card" onclick="viewMedicineDetails(13)">
+        <img src="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769406346/Avastin_zzsw61.png" alt="Avastin"
+          class="product-image">
+        <h3 class="product-title">Avastin (Bevacizumab)</h3>
+        <p class="product-subtitle">1 Vial</p>
+        <div class="price-add-row">
+          <span class="price">₹85,000</span>
+          <button class="add-btn" data-id="13" data-name="Avastin (Bevacizumab)" data-price="85000"
+            data-image="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769406346/Avastin_zzsw61.png">Add</button>
+        </div>
+      </div>
 
-    <!-- medicine 2 -->
-    <div class="medicine-card">
-      <img src="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769406346/Avastin_zzsw61.png" alt="Avastin">
-      <h3>Avastin</h3>
-      <p><Strong>Cost:</Strong> ₹85,000</p>
-      <p><Strong>Quantity:</Strong> 1 Vial</p>
-    </div>
+      <!-- Medicine 3: Perjeta -->
+      <div class="product-card" onclick="viewMedicineDetails(14)">
+        <img
+          src="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769406628/002c9844a0ce4e2ca61503dfe4de04a7-perjeta-vial_26_b5aexr.jpg"
+          alt="Perjeta" class="product-image">
+        <h3 class="product-title">Perjeta (Pertuzumab)</h3>
+        <p class="product-subtitle">1 Vial</p>
+        <div class="price-add-row">
+          <span class="price">₹1,20,000</span>
+          <button class="add-btn" data-id="14" data-name="Perjeta (Pertuzumab)" data-price="120000"
+            data-image="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769406628/002c9844a0ce4e2ca61503dfe4de04a7-perjeta-vial_26_b5aexr.jpg">Add</button>
+        </div>
+      </div>
 
-    <!-- medicine 3 -->
-    <div class="medicine-card">
-      <img
-        src="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769406628/002c9844a0ce4e2ca61503dfe4de04a7-perjeta-vial_26_b5aexr.jpg"
-        alt="Perjeta">
-      <h3>Perjeta(Pertuzumab)</h3>
-      <p><Strong>Cost:</Strong> ₹1,20,000</p>
-      <p><strong>Quantity:</strong> 1 Vial</p>
-    </div>
-
-    <!-- medicine 4 -->
-    <div class="medicine-card">
-      <img src="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769406963/tag_uzbqqx.webp" alt="Tagrisso">
-      <h3>Tagrisso (Osimertinib)</h3>
-      <p><Strong>Cost:</Strong> ₹1,80,000</p>
-      <p><strong>Quantity:</strong>30 Tablets</p>
+      <!-- Medicine 4: Tagrisso -->
+      <div class="product-card" onclick="viewMedicineDetails(15)">
+        <img src="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769406963/tag_uzbqqx.webp" alt="Tagrisso"
+          class="product-image">
+        <h3 class="product-title">Tagrisso (Osimertinib)</h3>
+        <p class="product-subtitle">30 Tablets</p>
+        <div class="price-add-row">
+          <span class="price">₹1,80,000</span>
+          <button class="add-btn" data-id="15" data-name="Tagrisso (Osimertinib)" data-price="180000"
+            data-image="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769406963/tag_uzbqqx.webp">Add</button>
+        </div>
+      </div>
     </div>
   </div>
 
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>&copy; 2025 MOM Pharmacy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', updateCartCount);
+  </script>
 </body>
 
 </html>
