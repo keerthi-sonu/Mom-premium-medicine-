@@ -14,20 +14,16 @@ const medicineDetails = {
     drugInteractions: "Live vaccines should be avoided around treatment time. Medicines affecting the liver need careful monitoring."
   },
   2: {
-<<<<<<< HEAD
     id: "2",
-=======
->>>>>>> 11e99d3da19f6a58599231ccebcebf9efd8812a2
     name: "Alecensa Capsule (alectinib)",
     image: "https://assets.roche.com/f/176343/2000x1125/bebeb103f9/alecensa.png",
     size: "150mg",
     price: "470592",
-<<<<<<< HEAD
-    overview: "Alecensa (alectinib) is a kinase inhibitor used to treat specific forms of ALK-positive non-small cell lung cancer (NSCLC).",
-    uses: "Treatment of patients with ALK-positive metastatic or early-stage non-small cell lung cancer after surgery.",
-    sideEffects: "Fatigue, constipation, swelling in hands or feet, muscle pain, and slow heart rate.",
-    howToUse: "Taken orally as capsules, typically 600 mg twice daily with food.",
-    drugInteractions: "May interact with drugs that slow heart rate, P-gp substrates, and BCRP substrates."
+    overview: "Alecensa (alectinib) is a prescription medication primarily used to treat specific forms of non-small cell lung cancer (NSCLC) in adults. It functions as an anaplastic lymphoma kinase (ALK) inhibitor.",
+    uses: "First-line treatment of adult patients with ALK-positive advanced NSCLC. Adjuvant treatment following complete tumor resection for adult patients with ALK-positive NSCLC who are at high risk of recurrence.",
+    sideEffects: "Constipation, tiredness, muscle aches, swelling, anemia, rash, nausea, and headache. Serious side effects may include liver, lung, or kidney problems.",
+    howToUse: "Take orally as capsules with food, typically twice daily. Determine ALK-positivity before starting. Do not open or crush capsules.",
+    drugInteractions: "Avoid taking with strong CYP3A inhibitors or inducers. Be cautious with drugs that slow heart rate."
   },
   3: {
     id: "3",
@@ -76,19 +72,12 @@ const medicineDetails = {
     sideEffects: "Fatigue, high blood pressure, diarrhea, and low blood cell counts.",
     howToUse: "Administered as an intravenous (IV) infusion every 2 to 3 weeks.",
     drugInteractions: "Inform doctor about all medications. Live vaccines should be avoided during treatment."
-=======
-    overview: "Alecensa (alectinib) is a prescription medication primarily used to treat specific forms of non-small cell lung cancer (NSCLC) in adults. It functions as an anaplastic lymphoma kinase (ALK) inhibitor.",
-    uses: "First-line treatment of adult patients with ALK-positive advanced NSCLC. Adjuvant treatment following complete tumor resection for adult patients with ALK-positive NSCLC who are at high risk of recurrence.",
-    sideEffects: "Constipation, tiredness, muscle aches, swelling, anemia, rash, nausea, and headache. Serious side effects may include liver, lung, or kidney problems.",
-    howToUse: "Take orally as capsules with food, typically twice daily. Determine ALK-positivity before starting. Do not open or crush capsules.",
-    drugInteractions: "Avoid taking with strong CYP3A inhibitors or inducers. Be cautious with drugs that slow heart rate."
->>>>>>> 11e99d3da19f6a58599231ccebcebf9efd8812a2
   }
 };
 
 function viewMedicineDetails(medicineId) {
   if (medicineDetails[medicineId]) {
-    const medicine = { ...medicineDetails[medicineId], id: medicineId };
+    const medicine = { ...medicineDetails[medicineId], id: medicineId.toString() };
     localStorage.setItem('selectedMedicine', JSON.stringify(medicine));
     console.log('Navigating to medicine details for ID:', medicineId);
     window.location.href = './medicine-details.html';
@@ -156,15 +145,21 @@ function loadCartItems() {
 
   if (cart.length === 0) {
     cartItemsContainer.style.display = 'none';
-    emptyCartMessage.style.display = 'block';
-    document.querySelector('.cart-summary').style.opacity = '0.5';
-    document.querySelector('.checkout-btn').disabled = true;
+    if (emptyCartMessage) emptyCartMessage.style.display = 'block';
+    const summary = document.querySelector('.cart-summary');
+    if (summary) summary.style.opacity = '0.5';
+    const checkout = document.querySelector('.checkout-btn');
+    if (checkout) checkout.disabled = true;
   } else {
-    cartItemsContainer.innerHTML = '';
-    cartItemsContainer.style.display = 'block';
-    emptyCartMessage.style.display = 'none';
-    document.querySelector('.cart-summary').style.opacity = '1';
-    document.querySelector('.checkout-btn').disabled = false;
+    if (cartItemsContainer) {
+      cartItemsContainer.innerHTML = '';
+      cartItemsContainer.style.display = 'block';
+    }
+    if (emptyCartMessage) emptyCartMessage.style.display = 'none';
+    const summary = document.querySelector('.cart-summary');
+    if (summary) summary.style.opacity = '1';
+    const checkout = document.querySelector('.checkout-btn');
+    if (checkout) checkout.disabled = false;
 
     cart.forEach(item => {
       const cartItem = document.createElement('div');
@@ -187,7 +182,7 @@ function loadCartItems() {
         </div>
         <button class="remove-btn" onclick="removeFromCart('${item.id}')">Remove</button>
       `;
-      cartItemsContainer.appendChild(cartItem);
+      if (cartItemsContainer) cartItemsContainer.appendChild(cartItem);
     });
   }
 
@@ -231,7 +226,11 @@ function updateSummary() {
   const tax = subtotal * 0.1;
   const total = subtotal + tax;
 
-  document.getElementById('subtotal').textContent = '₹' + subtotal.toLocaleString('en-IN');
-  document.getElementById('tax').textContent = '₹' + tax.toLocaleString('en-IN');
-  document.getElementById('total').textContent = '₹' + total.toLocaleString('en-IN');
+  const subtotalEl = document.getElementById('subtotal');
+  const taxEl = document.getElementById('tax');
+  const totalEl = document.getElementById('total');
+
+  if (subtotalEl) subtotalEl.textContent = '₹' + subtotal.toLocaleString('en-IN');
+  if (taxEl) taxEl.textContent = '₹' + tax.toLocaleString('en-IN');
+  if (totalEl) totalEl.textContent = '₹' + total.toLocaleString('en-IN');
 }
