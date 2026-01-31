@@ -74,7 +74,7 @@
   </div>
 
   <footer style="background-color: #00a99d; color: white; text-align: center; padding: 20px; margin-top: 40px;">
-    <p>&copy; 2024 Mediken. All rights reserved.</p>
+    <p>&copy; 2024 MOM Pharmacy. All rights reserved.</p>
   </footer>
 
   <script src="../js/script.js"></script>
@@ -83,10 +83,9 @@
       const medicine = JSON.parse(localStorage.getItem('selectedMedicine'));
 
       if (medicine) {
-        
         document.getElementById('medicineName').textContent = medicine.name;
         document.getElementById('medicineSize').textContent = medicine.size;
-        document.getElementById('medicinePrice').textContent = '₹' + medicine.price.replace(/\B(?=(\d{2})+(?!\d))/g, ',');
+        document.getElementById('medicinePrice').textContent = '₹' + medicine.price.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',');
         document.getElementById('medicineImage').src = medicine.image;
         document.getElementById('medicineImage').alt = medicine.name;
 
@@ -96,20 +95,16 @@
         document.getElementById('medicineHowToUse').textContent = medicine.howToUse;
         document.getElementById('medicineDrugInteractions').textContent = medicine.drugInteractions;
 
-        
         const addBtn = document.getElementById('addToCartBtn');
+        addBtn.setAttribute('data-id', medicine.id || '1');
+        addBtn.setAttribute('data-name', medicine.name);
+        addBtn.setAttribute('data-price', medicine.price);
+        addBtn.setAttribute('data-image', medicine.image);
+
         addBtn.addEventListener('click', function () {
-          addToCart({
-            getAttribute: (attr) => {
-              switch (attr) {
-                case 'data-id': return '1';
-                case 'data-name': return medicine.name;
-                case 'data-price': return medicine.price;
-                case 'data-image': return medicine.image;
-              }
-            }
-          });
+          addToCart(this);
         });
+
         updateCartCount();
       } else {
         window.location.href = 'index.html';

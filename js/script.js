@@ -2,6 +2,7 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const medicineDetails = {
   1: {
+    id: "1",
     name: "Zolgensma (gene therapy)",
     image: "https://www.clinicaltrialsarena.com/wp-content/uploads/sites/22/2019/08/2l-Image-Zolgensma.jpg",
     size: "5.5ml",
@@ -11,13 +12,75 @@ const medicineDetails = {
     sideEffects: "Increased liver enzymes. Vomiting, fever. Low platelet count (rare but serious).",
     howToUse: "Given as a single IV infusion. Administered only in a hospital setting. Steroids are given before and after treatment.",
     drugInteractions: "Live vaccines should be avoided around treatment time. Medicines affecting the liver need careful monitoring."
+  },
+  2: {
+    id: "2",
+    name: "Alecensa Capsule (alectinib)",
+    image: "https://assets.roche.com/f/176343/2000x1125/bebeb103f9/alecensa.png",
+    size: "150mg",
+    price: "470592",
+    overview: "Alecensa (alectinib) is a prescription medication primarily used to treat specific forms of non-small cell lung cancer (NSCLC) in adults. It functions as an anaplastic lymphoma kinase (ALK) inhibitor.",
+    uses: "First-line treatment of adult patients with ALK-positive advanced NSCLC. Adjuvant treatment following complete tumor resection for adult patients with ALK-positive NSCLC who are at high risk of recurrence.",
+    sideEffects: "Constipation, tiredness, muscle aches, swelling, anemia, rash, nausea, and headache. Serious side effects may include liver, lung, or kidney problems.",
+    howToUse: "Take orally as capsules with food, typically twice daily. Determine ALK-positivity before starting. Do not open or crush capsules.",
+    drugInteractions: "Avoid taking with strong CYP3A inhibitors or inducers. Be cautious with drugs that slow heart rate."
+  },
+  3: {
+    id: "3",
+    name: "Keytruda Injection (pembrolizumab)",
+    image: "https://www.pharmaceutical-technology.com/wp-content/uploads/sites/24/2021/10/KEYTRUDA2.jpg",
+    size: "100mg/4ml",
+    price: "195250",
+    overview: "Keytruda (pembrolizumab) is an immunotherapy that works by helping your immune system fight cancer.",
+    uses: "Used for various cancers including melanoma, NSCLC, head and neck cancer, and lymphoma.",
+    sideEffects: "Fatigue, musculoskeletal pain, rash, diarrhea, and potential immune-related organ inflammation.",
+    howToUse: "Administered as an intravenous (IV) infusion every 3 to 6 weeks.",
+    drugInteractions: "Inform doctor about all medications; immunosuppressants may interfere with its action."
+  },
+  4: {
+    id: "4",
+    name: "GT Capsule (Ayurveda)",
+    image: "https://www.bbassets.com/media/uploads/p/l/40206162_2-kerala-ayurveda-gt-capsules.jpg",
+    size: "10 caps",
+    price: "76599",
+    overview: "GT Capsule is an Ayurvedic formulation used for bone and joint health, and chronic skin conditions.",
+    uses: "Effective for osteoarthritis, osteoporosis, eczema, psoriasis, and joint stiffness.",
+    sideEffects: "Generally safe; may cause mild gastric irritation if taken in excess.",
+    howToUse: "Typically 1-2 capsules twice daily after meals with warm water.",
+    drugInteractions: "May interact with antacids and anticoagulant therapy. Discuss with a practitioner."
+  },
+  5: {
+    id: "5",
+    name: "Atezolizumab (Cancer effective)",
+    image: "https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769764432/atez_npnwhp.webp",
+    size: "60mg/1ml",
+    price: "198000",
+    overview: "Atezolizumab is a PD-L1 inhibitor immunotherapy that helps the immune system attack cancer cells.",
+    uses: "Used for non-small cell lung cancer, small cell lung cancer, and certain liver cancers.",
+    sideEffects: "Fatigue, rash, nausea, and potential immune-mediated inflammation of various organs.",
+    howToUse: "Given as an intravenous (IV) infusion every 2, 3, or 4 weeks.",
+    drugInteractions: "May interact with other cancer treatments and immunosuppressants."
+  },
+  6: {
+    id: "6",
+    name: "Ramucirumab (Cyramza)",
+    image: "https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769765228/ramu_jga1jc.webp",
+    size: "10mg/1ml",
+    price: "180000",
+    overview: "Ramucirumab (Cyramza) is a monoclonal antibody that inhibits tumor blood vessel growth (VEGF inhibitor).",
+    uses: "Treatment for advanced stomach cancer, colorectal cancer, lung cancer, and liver cancer.",
+    sideEffects: "Fatigue, high blood pressure, diarrhea, and low blood cell counts.",
+    howToUse: "Administered as an intravenous (IV) infusion every 2 to 3 weeks.",
+    drugInteractions: "Inform doctor about all medications. Live vaccines should be avoided during treatment."
   }
 };
 
 function viewMedicineDetails(medicineId) {
   if (medicineDetails[medicineId]) {
-    localStorage.setItem('selectedMedicine', JSON.stringify(medicineDetails[medicineId]));
-    window.location.href = 'medicine-details.html';
+    const medicine = { ...medicineDetails[medicineId], id: medicineId.toString() };
+    localStorage.setItem('selectedMedicine', JSON.stringify(medicine));
+    console.log('Navigating to medicine details for ID:', medicineId);
+    window.location.href = './medicine-details.html';
   }
 }
 
@@ -61,9 +124,10 @@ function addToCart(button) {
 
   updateCartCount();
 
-  button.textContent = 'Added!';
+  const originalText = button.innerText;
+  button.innerText = 'Added';
   setTimeout(() => {
-    button.textContent = 'Add';
+    button.innerText = originalText;
   }, 1500);
 }
 
@@ -81,15 +145,21 @@ function loadCartItems() {
 
   if (cart.length === 0) {
     cartItemsContainer.style.display = 'none';
-    emptyCartMessage.style.display = 'block';
-    document.querySelector('.cart-summary').style.opacity = '0.5';
-    document.querySelector('.checkout-btn').disabled = true;
+    if (emptyCartMessage) emptyCartMessage.style.display = 'block';
+    const summary = document.querySelector('.cart-summary');
+    if (summary) summary.style.opacity = '0.5';
+    const checkout = document.querySelector('.checkout-btn');
+    if (checkout) checkout.disabled = true;
   } else {
-    cartItemsContainer.innerHTML = '';
-    cartItemsContainer.style.display = 'block';
-    emptyCartMessage.style.display = 'none';
-    document.querySelector('.cart-summary').style.opacity = '1';
-    document.querySelector('.checkout-btn').disabled = false;
+    if (cartItemsContainer) {
+      cartItemsContainer.innerHTML = '';
+      cartItemsContainer.style.display = 'block';
+    }
+    if (emptyCartMessage) emptyCartMessage.style.display = 'none';
+    const summary = document.querySelector('.cart-summary');
+    if (summary) summary.style.opacity = '1';
+    const checkout = document.querySelector('.checkout-btn');
+    if (checkout) checkout.disabled = false;
 
     cart.forEach(item => {
       const cartItem = document.createElement('div');
@@ -112,7 +182,7 @@ function loadCartItems() {
         </div>
         <button class="remove-btn" onclick="removeFromCart('${item.id}')">Remove</button>
       `;
-      cartItemsContainer.appendChild(cartItem);
+      if (cartItemsContainer) cartItemsContainer.appendChild(cartItem);
     });
   }
 
@@ -156,7 +226,11 @@ function updateSummary() {
   const tax = subtotal * 0.1;
   const total = subtotal + tax;
 
-  document.getElementById('subtotal').textContent = '₹' + subtotal.toLocaleString('en-IN');
-  document.getElementById('tax').textContent = '₹' + tax.toLocaleString('en-IN');
-  document.getElementById('total').textContent = '₹' + total.toLocaleString('en-IN');
+  const subtotalEl = document.getElementById('subtotal');
+  const taxEl = document.getElementById('tax');
+  const totalEl = document.getElementById('total');
+
+  if (subtotalEl) subtotalEl.textContent = '₹' + subtotal.toLocaleString('en-IN');
+  if (taxEl) taxEl.textContent = '₹' + tax.toLocaleString('en-IN');
+  if (totalEl) totalEl.textContent = '₹' + total.toLocaleString('en-IN');
 }
