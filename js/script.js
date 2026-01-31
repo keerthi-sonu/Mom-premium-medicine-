@@ -14,11 +14,15 @@ const medicineDetails = {
     drugInteractions: "Live vaccines should be avoided around treatment time. Medicines affecting the liver need careful monitoring."
   },
   2: {
+<<<<<<< HEAD
     id: "2",
+=======
+>>>>>>> 11e99d3da19f6a58599231ccebcebf9efd8812a2
     name: "Alecensa Capsule (alectinib)",
     image: "https://assets.roche.com/f/176343/2000x1125/bebeb103f9/alecensa.png",
     size: "150mg",
     price: "470592",
+<<<<<<< HEAD
     overview: "Alecensa (alectinib) is a kinase inhibitor used to treat specific forms of ALK-positive non-small cell lung cancer (NSCLC).",
     uses: "Treatment of patients with ALK-positive metastatic or early-stage non-small cell lung cancer after surgery.",
     sideEffects: "Fatigue, constipation, swelling in hands or feet, muscle pain, and slow heart rate.",
@@ -72,13 +76,22 @@ const medicineDetails = {
     sideEffects: "Fatigue, high blood pressure, diarrhea, and low blood cell counts.",
     howToUse: "Administered as an intravenous (IV) infusion every 2 to 3 weeks.",
     drugInteractions: "Inform doctor about all medications. Live vaccines should be avoided during treatment."
+=======
+    overview: "Alecensa (alectinib) is a prescription medication primarily used to treat specific forms of non-small cell lung cancer (NSCLC) in adults. It functions as an anaplastic lymphoma kinase (ALK) inhibitor.",
+    uses: "First-line treatment of adult patients with ALK-positive advanced NSCLC. Adjuvant treatment following complete tumor resection for adult patients with ALK-positive NSCLC who are at high risk of recurrence.",
+    sideEffects: "Constipation, tiredness, muscle aches, swelling, anemia, rash, nausea, and headache. Serious side effects may include liver, lung, or kidney problems.",
+    howToUse: "Take orally as capsules with food, typically twice daily. Determine ALK-positivity before starting. Do not open or crush capsules.",
+    drugInteractions: "Avoid taking with strong CYP3A inhibitors or inducers. Be cautious with drugs that slow heart rate."
+>>>>>>> 11e99d3da19f6a58599231ccebcebf9efd8812a2
   }
 };
 
 function viewMedicineDetails(medicineId) {
   if (medicineDetails[medicineId]) {
-    localStorage.setItem('selectedMedicine', JSON.stringify(medicineDetails[medicineId]));
-    window.location.href = 'medicine-details.html';
+    const medicine = { ...medicineDetails[medicineId], id: medicineId };
+    localStorage.setItem('selectedMedicine', JSON.stringify(medicine));
+    console.log('Navigating to medicine details for ID:', medicineId);
+    window.location.href = './medicine-details.html';
   }
 }
 
@@ -122,9 +135,10 @@ function addToCart(button) {
 
   updateCartCount();
 
-  button.textContent = 'Added!';
+  const originalText = button.innerText;
+  button.innerText = 'Added';
   setTimeout(() => {
-    button.textContent = 'Add';
+    button.innerText = originalText;
   }, 1500);
 }
 

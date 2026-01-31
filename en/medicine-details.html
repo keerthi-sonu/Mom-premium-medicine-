@@ -98,7 +98,13 @@
 
 
         const addBtn = document.getElementById('addToCartBtn');
+        addBtn.setAttribute('data-id', medicine.id || '1');
+        addBtn.setAttribute('data-name', medicine.name);
+        addBtn.setAttribute('data-price', medicine.price);
+        addBtn.setAttribute('data-image', medicine.image);
+
         addBtn.addEventListener('click', function () {
+<<<<<<< HEAD
           addToCart({
             getAttribute: (attr) => {
               switch (attr) {
@@ -109,6 +115,9 @@
               }
             }
           });
+=======
+          addToCart(this);
+>>>>>>> 11e99d3da19f6a58599231ccebcebf9efd8812a2
         });
         updateCartCount();
       } else {
