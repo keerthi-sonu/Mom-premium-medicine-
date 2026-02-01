@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Mom Premium Medicines</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -36,91 +37,146 @@
       <p>Your health is our priority.</p>
     </div>
 
-    <div class="products-grid">
+    <div class="slider-container">
+      <button class="scroll-btn left" id="scrollLeft"><i class="fas fa-chevron-left"></i></button>
+      <div class="products-grid" id="productSlider">
 
-      <div class="product-card" onclick="viewMedicineDetails(1)">
-        <img src="https://www.clinicaltrialsarena.com/wp-content/uploads/sites/22/2019/08/2l-Image-Zolgensma.jpg"
-          alt="Medicine" class="product-image">
+        <div class="product-card" onclick="viewMedicineDetails(1)">
+          <img src="https://www.clinicaltrialsarena.com/wp-content/uploads/sites/22/2019/08/2l-Image-Zolgensma.jpg"
+            alt="Medicine" class="product-image">
 
-        <h3 class="product-title">Zolgensma (gene therapy)</h3>
-        <p class="product-subtitle">5.5ml</p>
+          <h3 class="product-title">Zolgensma (gene therapy)</h3>
+          <p class="product-subtitle">5.5ml</p>
 
-        <div class="price-add-row">
-          <span class="price">₹1,70,10,500</span>
-          <button class="add-btn" data-id="1" data-name="Zolgensma (gene therapy)" data-price="1701050000"
-            data-image="https://www.clinicaltrialsarena.com/wp-content/uploads/sites/22/2019/08/2l-Image-Zolgensma.jpg">Add</button>
+          <div class="price-add-row">
+            <span class="price">₹1,70,10,500</span>
+            <button class="add-btn" data-id="1" data-name="Zolgensma (gene therapy)" data-price="17010500"
+              data-image="https://www.clinicaltrialsarena.com/wp-content/uploads/sites/22/2019/08/2l-Image-Zolgensma.jpg">Add</button>
+          </div>
         </div>
-      </div>
 
-      <div class="product-card" onclick="viewMedicineDetails(2)">
-        <img src="https://assets.roche.com/f/176343/2000x1125/bebeb103f9/alecensa.png" alt="Medicine"
-          class="product-image">
+        <div class="product-card" onclick="viewMedicineDetails(2)">
+          <img src="https://assets.roche.com/f/176343/2000x1125/bebeb103f9/alecensa.png" alt="Medicine"
+            class="product-image">
 
-        <h3 class="product-title">Alecensa Capsule (alectinib)</h3>
-        <p class="product-subtitle">150mg</p>
+          <h3 class="product-title">Alecensa Capsule (alectinib)</h3>
+          <p class="product-subtitle">150mg</p>
 
-        <div class="price-add-row">
-          <span class="price">₹4,70,592</span>
-          <button class="add-btn" data-id="2" data-name="Alecensa Capsule (alectinib)" data-price="470592"
-            data-image="https://assets.roche.com/f/176343/2000x1125/bebeb103f9/alecensa.png">Add</button>
+          <div class="price-add-row">
+            <span class="price">₹4,70,592</span>
+            <button class="add-btn" data-id="2" data-name="Alecensa Capsule (alectinib)" data-price="470592"
+              data-image="https://assets.roche.com/f/176343/2000x1125/bebeb103f9/alecensa.png">Add</button>
+          </div>
         </div>
-      </div>
 
-      <div class="product-card" onclick="viewMedicineDetails(3)">
-        <img src="https://www.pharmaceutical-technology.com/wp-content/uploads/sites/24/2021/10/KEYTRUDA2.jpg"
-          alt="Medicine" class="product-image">
+        <div class="product-card" onclick="viewMedicineDetails(3)">
+          <img src="https://www.pharmaceutical-technology.com/wp-content/uploads/sites/24/2021/10/KEYTRUDA2.jpg"
+            alt="Medicine" class="product-image">
 
-        <h3 class="product-title">Keytruda Injection (pembrolizumab)</h3>
-        <p class="product-subtitle">100mg/4ml</p>
+          <h3 class="product-title">Keytruda Injection (pembrolizumab)</h3>
+          <p class="product-subtitle">100mg/4ml</p>
 
-        <div class="price-add-row">
-          <span class="price">₹1,95,250</span>
-          <button class="add-btn" data-id="3" data-name="Keytruda Injection (pembrolizumab)" data-price="195250"
-            data-image="https://www.pharmaceutical-technology.com/wp-content/uploads/sites/24/2021/10/KEYTRUDA2.jpg">Add</button>
+          <div class="price-add-row">
+            <span class="price">₹1,95,250</span>
+            <button class="add-btn" data-id="3" data-name="Keytruda Injection (pembrolizumab)" data-price="195250"
+              data-image="https://www.pharmaceutical-technology.com/wp-content/uploads/sites/24/2021/10/KEYTRUDA2.jpg">Add</button>
+          </div>
         </div>
-      </div>
 
-      <div class="product-card" onclick="viewMedicineDetails(4)">
-        <img src="https://www.bbassets.com/media/uploads/p/l/40206162_2-kerala-ayurveda-gt-capsules.jpg" alt="Medicine"
-          class="product-image">
+        <div class="product-card" onclick="viewMedicineDetails(4)">
+          <img src="https://www.bbassets.com/media/uploads/p/l/40206162_2-kerala-ayurveda-gt-capsules.jpg"
+            alt="Medicine" class="product-image">
 
-        <h3 class="product-title">GT Capsule (Ayurveda)</h3>
-        <p class="product-subtitle">10 caps</p>
+          <h3 class="product-title">GT Capsule (Ayurveda)</h3>
+          <p class="product-subtitle">10 caps</p>
 
-        <div class="price-add-row">
-          <span class="price">₹76,599</span>
-          <button class="add-btn" data-id="4" data-name="GT Capsule (Ayurveda)" data-price="76599"
-            data-image="https://www.bbassets.com/media/uploads/p/l/40206162_2-kerala-ayurveda-gt-capsules.jpg">Add</button>
+          <div class="price-add-row">
+            <span class="price">₹76,599</span>
+            <button class="add-btn" data-id="4" data-name="GT Capsule (Ayurveda)" data-price="76599"
+              data-image="https://www.bbassets.com/media/uploads/p/l/40206162_2-kerala-ayurveda-gt-capsules.jpg">Add</button>
+          </div>
         </div>
-      </div>
 
-      <div class="product-card" onclick="viewMedicineDetails(5)">
-        <img src="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769764432/atez_npnwhp.webp" alt="Medicine"
-          class="product-image">
+        <div class="product-card" onclick="viewMedicineDetails(5)">
+          <img src="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769764432/atez_npnwhp.webp" alt="Medicine"
+            class="product-image">
 
-        <h3 class="product-title">Atezolizumab (Cancer effective)</h3>
-        <p class="product-subtitle">60mg/1ml</p>
+          <h3 class="product-title">Atezolizumab (Cancer effective)</h3>
+          <p class="product-subtitle">60mg/1ml</p>
 
-        <div class="price-add-row">
-          <span class="price">₹1,98,000</span>
-          <button class="add-btn" data-id="5" data-name="Atezolizumab (Cancer effective)" data-price="198000"
-            data-image="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769764432/atez_npnwhp.webp">Add</button>
+          <div class="price-add-row">
+            <span class="price">₹1,98,000</span>
+            <button class="add-btn" data-id="5" data-name="Atezolizumab (Cancer effective)" data-price="198000"
+              data-image="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769764432/atez_npnwhp.webp">Add</button>
+          </div>
         </div>
-      </div>
 
-      <div class="product-card" onclick="viewMedicineDetails(6)">
-        <img src="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769765228/ramu_jga1jc.webp" alt="Medicine"
-          class="product-image">
+        <div class="product-card" onclick="viewMedicineDetails(6)">
+          <img src="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769765228/ramu_jga1jc.webp" alt="Medicine"
+            class="product-image">
 
-        <h3 class="product-title">Ramucirumab (Cyramza)</h3>
-        <p class="product-subtitle">10mg/1ml</p>
+          <h3 class="product-title">Ramucirumab (Cyramza)</h3>
+          <p class="product-subtitle">10mg/1ml</p>
 
-        <div class="price-add-row">
-          <span class="price">₹1,80,000</span>
-          <button class="add-btn" data-id="6" data-name="Ramucirumab (Cyramza)" data-price="180000"
-            data-image="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769765228/ramu_jga1jc.webp">Add</button>
+          <div class="price-add-row">
+            <span class="price">₹1,80,000</span>
+            <button class="add-btn" data-id="6" data-name="Ramucirumab (Cyramza)" data-price="180000"
+              data-image="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769765228/ramu_jga1jc.webp">Add</button>
+          </div>
         </div>
+
+        <div class="product-card" onclick="viewMedicineDetails(7)">
+          <img src="https://images.apollo247.in/pub/media/catalog/product/J/A/JAR0007_3_1.jpg" alt="Medicine"
+            class="product-image">
+          <h3 class="product-title">Jardiance 25mg (Empagliflozin)</h3>
+          <p class="product-subtitle">10 Tablets</p>
+          <div class="price-add-row">
+            <span class="price">₹1,200</span>
+            <button class="add-btn" data-id="7" data-name="Jardiance 25mg (Empagliflozin)" data-price="1200"
+              data-image="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769765512/jard_qj6w6j.webp">Add</button>
+          </div>
+        </div>
+
+        <div class="product-card" onclick="viewMedicineDetails(8)">
+          <img
+            src="https://assets.truemeds.in/Images/ProductImage/TM-TACR1-055225/rybelsus-7mg-tablet-10_rybelsus-7mg-tablet-10--TM-TACR1-055225_1.png"
+            alt="Medicine" class="product-image">
+          <h3 class="product-title">Rybelsus 7mg (Semaglutide)</h3>
+          <p class="product-subtitle">10 Tablets</p>
+          <div class="price-add-row">
+            <span class="price">₹12,000</span>
+            <button class="add-btn" data-id="8" data-name="Rybelsus 7mg (Semaglutide)" data-price="12000"
+              data-image="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769765715/rybels_vsqjmx.webp">Add</button>
+          </div>
+        </div>
+
+        <div class="product-card" onclick="viewMedicineDetails(9)">
+          <img
+            src="https://www.practostatic.com/practopedia-images/v3/res-750/januvia-50mg-tablet-7-s_550bb2dd-3620-4d3b-b94c-81c8690b3ab2.JPG"
+            alt="Medicine" class="product-image">
+          <h3 class="product-title">Januvia 100mg (Sitagliptin)</h3>
+          <p class="product-subtitle">10 Tablets</p>
+          <div class="price-add-row">
+            <span class="price">₹1,500</span>
+            <button class="add-btn" data-id="9" data-name="Januvia 100mg (Sitagliptin)" data-price="1500"
+              data-image="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769765892/januvia_k6pwbk.webp">Add</button>
+          </div>
+        </div>
+
+        <div class="product-card" onclick="viewMedicineDetails(10)">
+          <img src="https://www.amariindia.com/media/images/ENTRESTO_200MG_-_SACUBITRIL_VALSARTAN_2JqKZyR.width-800.jpg"
+            alt="Medicine" class="product-image">
+          <h3 class="product-title">Entresto 200mg (Sacubitril/Valsartan)</h3>
+          <p class="product-subtitle">10 Tablets</p>
+          <div class="price-add-row">
+            <span class="price">₹3,500</span>
+            <button class="add-btn" data-id="10" data-name="Entresto 200mg (Sacubitril/Valsartan)" data-price="3500"
+              data-image="https://res.cloudinary.com/dp8wy3ooi/image/upload/v1769766054/entresto_shmwp4.webp">Add</button>
+          </div>
+        </div>
+
       </div>
+      <button class="scroll-btn right" id="scrollRight"><i class="fas fa-chevron-right"></i></button>
     </div>
 
   </section>

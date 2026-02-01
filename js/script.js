@@ -206,7 +206,116 @@ document.addEventListener('DOMContentLoaded', function () {
   if (document.getElementById('cart-items')) {
     loadCartItems();
   }
+
+  // Initialize product buttons from cart
+  initProductButtons();
+
+  // Slider Scroll Logic
+  const slider = document.getElementById('productSlider');
+  const scrollLeft = document.getElementById('scrollLeft');
+  const scrollRight = document.getElementById('scrollRight');
+
+  if (slider && scrollLeft && scrollRight) {
+    scrollLeft.addEventListener('click', () => {
+      slider.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+
+    scrollRight.addEventListener('click', () => {
+      slider.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+  }
 });
+
+function initProductButtons() {
+  const allAddBtns = document.querySelectorAll('.add-btn, .add-to-cart-btn');
+  allAddBtns.forEach(btn => {
+    const id = btn.getAttribute('data-id');
+    const cartItem = cart.find(item => item.id === id);
+    if (cartItem) {
+      updateButtonToQuantity(btn, cartItem.quantity);
+    }
+  });
+}
+
+function updateButtonToQuantity(btn, quantity) {
+  const parent = btn.parentElement;
+  if (!parent) return;
+
+  const id = btn.getAttribute('data-id');
+  const name = btn.getAttribute('data-name');
+  const price = btn.getAttribute('data-price');
+  const image = btn.getAttribute('data-image');
+
+  // Create quantity selector
+  const qtyDiv = document.createElement('div');
+  qtyDiv.className = 'quantity-controls';
+  qtyDiv.setAttribute('data-id', id);
+  qtyDiv.innerHTML = `
+        <button onclick="handleQuantityChange(event, '${id}', -1)">−</button>
+        <span>${quantity}</span>
+        <button onclick="handleQuantityChange(event, '${id}', 1)">+</button>
+    `;
+
+  // Preserve data attributes for restoration if needed
+  qtyDiv.setAttribute('data-name', name);
+  qtyDiv.setAttribute('data-price', price);
+  qtyDiv.setAttribute('data-image', image);
+  qtyDiv.setAttribute('data-class', btn.className);
+
+  btn.replaceWith(qtyDiv);
+}
+
+function handleQuantityChange(event, id, delta) {
+  event.stopPropagation();
+  const cartItem = cart.find(item => item.id === id);
+
+  if (cartItem) {
+    cartItem.quantity += delta;
+    if (cartItem.quantity <= 0) {
+      cart = cart.filter(item => item.id !== id);
+      restoreAddButton(id);
+    } else {
+      updateQtyDisplay(id, cartItem.quantity);
+    }
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+  if (document.getElementById('cart-items')) loadCartItems();
+}
+
+function updateQtyDisplay(id, quantity) {
+  const qtyControls = document.querySelectorAll(`.quantity-controls[data-id="${id}"]`);
+  qtyControls.forEach(ctrl => {
+    const span = ctrl.querySelector('span');
+    if (span) span.textContent = quantity;
+  });
+}
+
+function restoreAddButton(id) {
+  const qtyControls = document.querySelectorAll(`.quantity-controls[data-id="${id}"]`);
+  qtyControls.forEach(ctrl => {
+    const name = ctrl.getAttribute('data-name');
+    const price = ctrl.getAttribute('data-price');
+    const image = ctrl.getAttribute('data-image');
+    const className = ctrl.getAttribute('data-class');
+
+    const btn = document.createElement('button');
+    btn.className = className;
+    btn.setAttribute('data-id', id);
+    btn.setAttribute('data-name', name);
+    btn.setAttribute('data-price', price);
+    btn.setAttribute('data-image', image);
+    btn.textContent = className.includes('to-cart') ? 'Add to Cart' : 'Add';
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      addToCart(this);
+    });
+
+    ctrl.replaceWith(btn);
+  });
+}
 
 function addToCart(button) {
   const id = button.getAttribute('data-id');
@@ -214,29 +323,19 @@ function addToCart(button) {
   const price = parseFloat(button.getAttribute('data-price'));
   const image = button.getAttribute('data-image');
 
-  const existingItem = cart.find(item => item.id === id);
-
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({
-      id: id,
-      name: name,
-      price: price,
-      image: image,
-      quantity: 1
-    });
-  }
+  cart.push({
+    id: id,
+    name: name,
+    price: price,
+    image: image,
+    quantity: 1
+  });
 
   localStorage.setItem('cart', JSON.stringify(cart));
-
   updateCartCount();
+  updateButtonToQuantity(button, 1);
 
-  const originalText = button.innerText;
-  button.innerText = 'Added';
-  setTimeout(() => {
-    button.innerText = originalText;
-  }, 1500);
+  if (document.getElementById('cart-items')) loadCartItems();
 }
 
 function updateCartCount() {
