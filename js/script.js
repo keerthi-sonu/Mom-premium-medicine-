@@ -76,7 +76,7 @@ const medicineDetails = {
   7: {
     id: "7",
     name: "Jardiance 25mg (Empagliflozin)",
-    image: "../assets/jardiance_box.png",
+    image: "https://res.cloudinary.com/dp8wy3ooi/image/upload/v1770008841/jard1_ayarkc.avif",
     size: "10 Tablets",
     price: "1200",
     overview: "Jardiance is used with diet and exercise to lower blood sugar in adults with type 2 diabetes.",
@@ -88,7 +88,7 @@ const medicineDetails = {
   8: {
     id: "8",
     name: "Rybelsus 7mg (Semaglutide)",
-    image: "../assets/rybelsus_box.png",
+    image: "https://res.cloudinary.com/dp8wy3ooi/image/upload/v1770008887/ryb_dphhsx.avif",
     size: "10 Tablets",
     price: "12000",
     overview: "Rybelsus is the first and only pill that works like a natural hormone to lower blood sugar.",
@@ -100,7 +100,7 @@ const medicineDetails = {
   9: {
     id: "9",
     name: "Januvia 100mg (Sitagliptin)",
-    image: "../assets/januvia_box.png",
+    image: "https://res.cloudinary.com/dp8wy3ooi/image/upload/v1770008925/janu_mgubod.avif",
     size: "10 Tablets",
     price: "1500",
     overview: "Januvia is a prescription medicine used along with diet and exercise to lower blood sugar.",
@@ -112,7 +112,7 @@ const medicineDetails = {
   10: {
     id: "10",
     name: "Entresto 200mg (Sacubitril/Valsartan)",
-    image: "../assets/entresto_box.png",
+    image: "https://res.cloudinary.com/dp8wy3ooi/image/upload/v1770008990/enstro_xqlmpt.jpg",
     size: "10 Tablets",
     price: "3500",
     overview: "Entresto is a breakthrough treatment for patients with chronic heart failure and high BP.",
@@ -124,7 +124,7 @@ const medicineDetails = {
   11: {
     id: "11",
     name: "Telma 40mg (Telmisartan)",
-    image: "../assets/telma_box.png",
+    image: "https://res.cloudinary.com/dp8wy3ooi/image/upload/v1770009113/tel_yh49eo.webp",
     size: "15 Tablets",
     price: "800",
     overview: "Telma 40 contains Telmisartan, an ARB used to treat high blood pressure.",
