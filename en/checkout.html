@@ -73,28 +73,50 @@
             <label class="payment-option">
               <input type="radio" name="payment" value="upi" checked>
               <div class="payment-card">
-
-                <span>UPI (GPay, PhonePe)</span>
+                <span>UPI (GPay, PhonePe, Paytm)</span>
               </div>
             </label>
+
+            <div id="upi-details" class="payment-details-section">
+              <div class="upi-qr-container">
+                <p>Scan QR code to pay</p>
+                <img
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=mombussiness@upi&pn=MomPharmacy"
+                  alt="Payment QR Code" class="qr-code-img">
+                <p class="upi-id-text">UPI ID: mombussiness@upi</p>
+              </div>
+            </div>
+
             <label class="payment-option">
               <input type="radio" name="payment" value="card">
               <div class="payment-card">
-
                 <span>Credit / Debit Card</span>
               </div>
             </label>
+
+            <div id="card-details" class="payment-details-section">
+              <div class="checkout-form-group">
+                <input type="text" id="cardNum" placeholder="Card Number" maxlength="19">
+              </div>
+              <div class="address-grid">
+                <input type="text" id="cardExpiry" placeholder="MM / YY" maxlength="5">
+                <input type="password" id="cardCvv" placeholder="CVV" maxlength="3">
+              </div>
+              <div class="checkout-form-group" style="margin-top: 15px;">
+                <input type="text" id="cardName" placeholder="Name on Card">
+              </div>
+            </div>
+
             <label class="payment-option">
               <input type="radio" name="payment" value="razor">
               <div class="payment-card">
-
-                <span>Razor Pay</span>
+                <span>Razorpay</span>
               </div>
             </label>
+
             <label class="payment-option">
               <input type="radio" name="payment" value="cod">
               <div class="payment-card">
-
                 <span>Cash on Delivery</span>
               </div>
             </label>
