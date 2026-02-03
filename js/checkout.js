@@ -46,10 +46,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateOrderSummary();
 
+
+    const paymentRadios = document.querySelectorAll('input[name="payment"]');
+    const upiDetails = document.getElementById('upi-details');
+    const cardDetails = document.getElementById('card-details');
+
+    function togglePaymentDetails() {
+        const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+
+        if (upiDetails) upiDetails.style.display = 'none';
+        if (cardDetails) cardDetails.style.display = 'none';
+
+        if (selectedPayment === 'upi') {
+            if (upiDetails) upiDetails.style.display = 'block';
+        } else if (selectedPayment === 'card') {
+            if (cardDetails) cardDetails.style.display = 'block';
+        }
+    }
+
+    togglePaymentDetails();
+
+    paymentRadios.forEach(radio => {
+        radio.addEventListener('change', togglePaymentDetails);
+    });
+
     if (proceedBtn) {
         proceedBtn.addEventListener('click', function () {
-            // Basic validation
-            const requiredInputs = document.querySelectorAll('input[required]');
+            const requiredInputs = document.querySelectorAll('#fullName, #mobile, #houseNo, #street, #city, #state, #pincode');
             let isValid = true;
             requiredInputs.forEach(input => {
                 if (!input.value.trim()) {
@@ -65,10 +88,35 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            // Simple confirmation and clear cart
-            alert('Redirecting to secure payment gateway...');
-            localStorage.removeItem('cart');
-            window.location.href = 'index.html';
+            const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+
+            if (selectedPayment === 'card') {
+                const cardInputs = document.querySelectorAll('#cardNum, #cardExpiry, #cardCvv, #cardName');
+                let isCardValid = true;
+                cardInputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        input.style.borderColor = 'red';
+                        isCardValid = false;
+                    } else {
+                        input.style.borderColor = '#c8d6d5';
+                    }
+                });
+
+                if (!isCardValid) {
+                    alert('Please enter valid card details.');
+                    return;
+                }
+            }
+
+            const proceedBtn = document.getElementById('proceedBtn');
+            const originalText = proceedBtn.innerHTML;
+            proceedBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            proceedBtn.disabled = true;
+
+            setTimeout(() => {
+                localStorage.removeItem('cart');
+                window.location.href = 'order-success.html';
+            }, 2000);
         });
     }
 });
