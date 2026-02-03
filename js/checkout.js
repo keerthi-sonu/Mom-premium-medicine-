@@ -72,3 +72,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+const mobileInput=document.getElementById("mobile");
+const mobileError=document.getElementById("mobileError");
+
+mobileInput.addEventListener("input",function(){
+  this.value=this.value.replace(/[^0-9]/g, "");
+
+   if (this.value.length > 0 && !/^[6-9]/.test(this.value)) {
+      this.value = this.value.slice(0, -1);
+    }
+
+    if(this.value.length===10){
+      mobileError.textContent="";
+    }else{
+      mobileError.textContent="Mobile number must start with 6-9 and be 10 digits";
+    }
+})
